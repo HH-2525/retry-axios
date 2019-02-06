@@ -159,7 +159,7 @@ function shouldRetryRequest(err: AxiosError) {
 
   // Only retry with configured HttpMethods.
   if (!err.config.method ||
-      config.httpMethodsToRetry!.indexOf(err.config.method.toUpperCase()) < 0) {
+      config.httpMethodsToRetry!.findIndex(err.config.method.toUpperCase()) < 0) {
     return false;
   }
 
